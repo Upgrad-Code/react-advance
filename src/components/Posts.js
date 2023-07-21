@@ -1,16 +1,20 @@
 import React from 'react';
 import jsonPlaceholderHoc from '../Hoc/jsonPlaceholderHoc';
+import Loading from './Loading';
 
 const Posts = (props) => {
-  const { data } = props;
+  const { data, isChildActive } = props;
   return (
-    <ul>
-      {data &&
-        data.length > 0 &&
-        data.map((el) => {
-          return <li key={el.id}>{el.title}</li>;
-        })}
-    </ul>
+    <>
+      {isChildActive && <Loading />}
+      <ul>
+        {data &&
+          data.length > 0 &&
+          data.map((el) => {
+            return <li key={el.id}>{el.title}</li>;
+          })}
+      </ul>
+    </>
   );
 };
 

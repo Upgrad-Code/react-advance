@@ -8,7 +8,7 @@ const JsonPlaceholder = () => {
       <p>Json Placeholder</p>
       <div style={{ display: 'flex' }}>
         <Users />
-        <Posts isActive={false} />
+        <Posts isActive={true} />
       </div>
     </div>
   );

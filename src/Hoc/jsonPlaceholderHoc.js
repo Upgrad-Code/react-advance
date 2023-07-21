@@ -3,7 +3,6 @@ import { useFetch } from '../customHooks/useFetch';
 
 const jsonPlaceholderHoc = (WrappedComponent, entity) => {
   const updatedComponent = (props) => {
-    console.log(props);
     const [state, setState] = useState({
       searchPram: '',
     });
@@ -46,7 +45,7 @@ const jsonPlaceholderHoc = (WrappedComponent, entity) => {
         />
         <p>{entity} List...</p>
         {loading && <p>Loading.....</p>}
-        <WrappedComponent data={filteredData} />
+        <WrappedComponent data={filteredData} isChildActive={props.isActive} />
         {error && <p>{error}</p>}
       </div>
     );
