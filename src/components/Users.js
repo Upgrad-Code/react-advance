@@ -6,11 +6,25 @@ export const Users = () => {
   });
   const [apiState] = useFetch('https://jsonplaceholder.typicode.com/users');
   const { loading, data, error } = apiState;
+  const { searchPram } = state;
+
   const searchHandler = (e) => {
     setState((prev) => {
       return { ...prev, searchPram: e.target.value };
     });
   };
+
+  let filteredUsers;
+
+  if (data && data.length > 0) {
+    filteredUsers = data.filter((el) => {
+      if (el.name.toLowerCase().includes(searchPram.toLowerCase())) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
 
   console.log(state);
   return (
@@ -19,9 +33,9 @@ export const Users = () => {
       <p>Users List...</p>
       {loading && <p>Loading.....</p>}
       <ul>
-        {data &&
-          data.length > 0 &&
-          data.map((el) => {
+        {filteredUsers &&
+          filteredUsers.length > 0 &&
+          filteredUsers.map((el) => {
             return <li key={el.id}>{el.name}</li>;
           })}
       </ul>
