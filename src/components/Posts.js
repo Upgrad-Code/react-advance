@@ -3,7 +3,6 @@ import jsonPlaceholderHoc from '../Hoc/jsonPlaceholderHoc';
 
 const Posts = (props) => {
   const { data } = props;
-  console.log(data);
   return (
     <ul>
       {data &&
@@ -15,4 +14,4 @@ const Posts = (props) => {
   );
 };
 
-export default jsonPlaceholderHoc(Posts);
+export default jsonPlaceholderHoc(Posts, 'posts');

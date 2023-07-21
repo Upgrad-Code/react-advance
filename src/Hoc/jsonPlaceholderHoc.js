@@ -22,10 +22,17 @@ const jsonPlaceholderHoc = (WrappedComponent, entity) => {
     let filteredData;
     if (data && data.length > 0) {
       filteredData = data.filter((el) => {
-        if (el.title.toLowerCase().includes(searchPram.toLowerCase())) {
-          return true;
-        } else {
-          return false;
+        switch (entity) {
+          case 'posts':
+            return el.title.toLowerCase().includes(searchPram.toLowerCase())
+              ? true
+              : false;
+          case 'users':
+            return el.name.toLowerCase().includes(searchPram.toLowerCase())
+              ? true
+              : false;
+          default:
+            return el;
         }
       });
     }
@@ -37,7 +44,7 @@ const jsonPlaceholderHoc = (WrappedComponent, entity) => {
           placeholder={`search ${entity}`}
           onChange={searchHandler}
         />
-        <p>{entity.toUpperCase()} List...</p>
+        <p>{entity} List...</p>
         {loading && <p>Loading.....</p>}
         <WrappedComponent data={filteredData} />
         {error && <p>{error}</p>}

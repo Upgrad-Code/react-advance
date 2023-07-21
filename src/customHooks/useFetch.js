@@ -6,8 +6,9 @@ export const useFetch = (url) => {
     data: [],
     error: null,
   });
+  // console.log(state);
 
-  console.log('use Fetch Hook.....');
+  // console.log('use Fetch Hook.....');
 
   const getApi = useCallback(async (url, signal) => {
     try {

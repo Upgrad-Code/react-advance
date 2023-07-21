@@ -1,6 +1,6 @@
 import React from 'react';
-import { Users } from '../components/Users';
-import { Posts } from '../components/Posts';
+import Users from '../components/Users';
+import Posts from '../components/Posts';
 
 const JsonPlaceholder = () => {
   return (
@@ -8,7 +8,7 @@ const JsonPlaceholder = () => {
       <p>Json Placeholder</p>
       <div style={{ display: 'flex' }}>
         <Users />
-        <Posts />
+        <Posts isActive={false} />
       </div>
     </div>
   );
