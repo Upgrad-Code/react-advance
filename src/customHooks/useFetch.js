@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 
-export const useFetch = (url) => {
+const useFetch = (url) => {
   const [state, setState] = useState({
     loading: false,
     data: [],
     error: null,
   });
+
+  console.log('use Fetch Hook.....');
 
   const getApi = useCallback(async (url, signal) => {
     try {
@@ -41,3 +43,5 @@ export const useFetch = (url) => {
 
   return [state];
 };
+
+export default memo(useFetch);
