@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
-const useFetch = (url) => {
+export const useFetch = (url) => {
   const [state, setState] = useState({
     loading: false,
     data: [],
@@ -43,5 +43,3 @@ const useFetch = (url) => {
 
   return [state];
 };
-
-export default memo(useFetch);
