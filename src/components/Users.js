@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-console.log(axios);
-
 export const Users = () => {
   const [state, setState] = useState({
     loading: false,
